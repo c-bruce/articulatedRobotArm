@@ -25,7 +25,17 @@ def getEndPoint(start_point, length, a0, a1):
     x = start_point[0] + base * np.cos(np.deg2rad(a0))
     y = start_point[1] + base * np.sin(np.deg2rad(a0))
     return [x, y, z]
-    
+
+class Assembly:
+    def __init__(self, arms):
+        self.arms = arms # Parent-Child relationship contained in this list
+
+class Arm:
+    def __init__(self, length, degrees_of_freedom=None):
+        self.length = length
+        self.degrees_of_freedom = degrees_of_freedom
+        self.reference_frame = ReferenceFrame()
+
 l0 = 1
 l1 = l0
 l2 = 0.5 * l0
